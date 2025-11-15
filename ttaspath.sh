@@ -16,8 +16,10 @@ for cmd in traceroute awk whois; do
 done
 
 # Run TCP traceroute to 443, extract the first IPv4 per hop, query Team Cymru whois
+i=0 
 traceroute -Tn -p 443 "$d" \
 | awk '/^[[:space:]]*[0-9]+[[:space:]]/ { for (i=2; i<=NF; i++) if ($i ~ /^[0-9.]+$/) { print $i; break } }' \
 | while read -r ip; do
-    whois -h whois.cymru.com "$ip" | awk 'NR>1{print}'
+    whois -h whois.cymru.com -p 43 "$ip" | awk -v i="$i" 'NR>1 { print ++i, "|", $0 }'
+    i=$((i+1))
   done
