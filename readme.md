@@ -36,13 +36,7 @@ or
 
 ### Testing after changes
 
-```
-bnr
-```
-or
-```
-bnr.sh
-```
+`bnr` or `bnr.sh`
 
 ### Examples
 
