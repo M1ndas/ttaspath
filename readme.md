@@ -1,6 +1,6 @@
 # ttaspath
 
-- Runs tcp traceroute ('tt' part in the name) and prints AS ('as' part in the name) along the network path ('path' part in the name).
+- Runs `tcp traceroute` ('tt' part in the name) and `prints AS` ('as' part in the name) along the `network path` ('path' part in the name).
 
 - Usefull in this situation: 
     - you have to deploy networked software on a customer machine on a customer network, 
@@ -12,9 +12,9 @@
 
 ### Comparative analysis w/ altenatives
 
-- mtr --aslookup --tcp --port=443 --report -n temu.ch    --> only AS number, not name, but provides reverse DNS (PTR) lookup, default ipv6 use, packet stats, displays changing ips in path
-- traceroute -ATn -p 443 temu.ch                         --> only AS number, not name, but provides packet stats, displays changing ips in path
-- ./ttaspath temu.ch 443                                 --> AS number and AS name, but no packet stats
+- `mtr --aslookup --tcp --port=443 --report -n temu.ch`    --> only AS number, not name, but provides reverse DNS (PTR) lookup, default ipv6 use, packet stats, displays changing ips in path
+- `traceroute -ATn -p 443 temu.ch`                         --> only AS number, not name, but provides packet stats, displays changing ips in path
+- `./ttaspath temu.ch 443`                                 --> AS number and AS name, but no packet stats
 
 ### Run
 
@@ -70,7 +70,7 @@ root@s1:~# curl https://raw.githubusercontent.com/M1ndas/ttaspath/refs/heads/mai
 9 | 15169   | 8.8.8.8          | GOOGLE, US
 ```
 
-Future plans:
+### Future plans:
 
 - Would probably be usefull to show the full traceroute and then the aspath or include the name of the AS in the traceroute -TA output
 - Maybe include PTR lookups (this discloses that hetzner for example has direct peering with megafon ru: hetzner-gw.megafon.ru. https://en.wikipedia.org/wiki/MegaFon)
